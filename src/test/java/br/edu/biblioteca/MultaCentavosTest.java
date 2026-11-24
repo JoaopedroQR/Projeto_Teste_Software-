@@ -46,7 +46,6 @@ class MultaCentavosTest {
         "33,5000", // 30º dia cobrado: R$ 50 exatos
         "34,5000"   // 31º dia cobrado: teto age
     })
-
     void professorComCarencia(int dias, int esperado) {
         // JUnit repete o método uma vez para cada linha do CsvSource, convertendo os valores para os tipos dos parâmetros
         assertEquals(esperado, regras.multaCentavos(TipoUsuario.PROFESSOR, dias));
@@ -82,7 +81,6 @@ class MultaCentavosTest {
         "PROFESSOR", 
         "VISITANTE" 
     })
-
     void diasNegativosLancamExcecao(TipoUsuario tipo) {
         assertThrows(IllegalArgumentException.class, () -> regras.multaCentavos(tipo, -1));
     }
