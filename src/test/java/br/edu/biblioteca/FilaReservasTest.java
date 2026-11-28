@@ -16,4 +16,9 @@ public class FilaReservasTest {
     public void filaNovaTemTamanhoZero() {
         assertEquals(0, fila.tamanho());
     }
+
+    @Test
+    public void filaNovaNaoTemProximo() {
+        assertEquals(Optional.empty(), fila.proximo());
+    }
 }
