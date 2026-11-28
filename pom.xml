@@ -26,14 +26,6 @@
   </dependencyManagement>
 
   <dependencies>
-    <!-- Sistema sob teste, entregue compilado (fase 1: caixa-preta) -->
-    <dependency>
-      <groupId>br.edu.biblioteca</groupId>
-      <artifactId>biblioteca</artifactId>
-      <version>1.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/lib/biblioteca-1.0.jar</systemPath>
-    </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
@@ -51,6 +43,21 @@
           <!-- Testes que falham são esperados: eles revelam defeitos do sistema. -->
           <testFailureIgnore>true</testFailureIgnore>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.12</version>
+        <executions>
+          <execution>
+            <goals><goal>prepare-agent</goal></goals>
+          </execution>
+          <execution>
+            <id>relatorio</id>
+            <phase>test</phase>
+            <goals><goal>report</goal></goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>
