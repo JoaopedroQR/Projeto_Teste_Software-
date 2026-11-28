@@ -9,7 +9,7 @@ public class FilaReservas {
     private final List<String> alunos = new ArrayList<>();
 
     public void reservar(String usuario, TipoUsuario tipo){
-        if(alunos.contains(usuario)){
+        if(alunos.contains(usuario) || professores.contains(usuario)){
             throw new IllegalStateException("usuário já está na fila");
         }else if(tipo == TipoUsuario.PROFESSOR){
             professores.add(usuario);
