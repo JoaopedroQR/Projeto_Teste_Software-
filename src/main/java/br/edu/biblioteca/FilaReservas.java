@@ -32,7 +32,7 @@ public class FilaReservas {
         
     }
     public boolean cancelar(String usuario){
-        
+        return false;
     }
     public Optional<String> proximo(){
         if (!professores.isEmpty()) {
