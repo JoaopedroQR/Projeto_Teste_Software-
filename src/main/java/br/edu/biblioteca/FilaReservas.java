@@ -29,7 +29,7 @@ public class FilaReservas {
         return professores.size() + alunos.size();
     }
     public int posicao(String usuario){
-        
+        return 0;
     }
     public boolean cancelar(String usuario){
         return alunos.remove(usuario) || professores.remove(usuario);
