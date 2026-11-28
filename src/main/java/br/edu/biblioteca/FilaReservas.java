@@ -7,7 +7,7 @@ public class FilaReservas {
 
     }
     public int tamanho(){
-        
+        return 0;
     }
     public int posicao(String usuario){
         
