@@ -93,4 +93,13 @@ public class FilaReservasTest {
     void cancelarQuemNaoEstaNaFilaDevolveFalse() {
         assertFalse(fila.cancelar("zeca"));
     }
+    @Test
+    void cancelarAlunoRemoveEDevolveTrue() {
+        fila.reservar("ana", TipoUsuario.ALUNO);
+        fila.reservar("bia", TipoUsuario.ALUNO);
+
+        assertTrue(fila.cancelar("ana"));
+        assertEquals(1, fila.tamanho());
+        assertEquals(Optional.of("bia"), fila.proximo());
+    }
 }
