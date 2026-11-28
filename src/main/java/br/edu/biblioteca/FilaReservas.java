@@ -3,10 +3,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
 public class FilaReservas {
     private final List<String> professores = new ArrayList<>();
     private final List<String> alunos = new ArrayList<>();
+    private static final int CAPACIDADE = 5;
 
     private boolean estaNaFila(String usuario) {
         return alunos.contains(usuario) || professores.contains(usuario);
@@ -15,7 +15,7 @@ public class FilaReservas {
     public void reservar(String usuario, TipoUsuario tipo){
         if(estaNaFila(usuario)){
             throw new IllegalStateException("usuário já está na fila");
-        }else if(tamanho() == 5){
+        }else if(tamanho() >= CAPACIDADE){
             throw new IllegalStateException("Fila cheia");
         }else if(tipo == TipoUsuario.PROFESSOR){
             professores.add(usuario);

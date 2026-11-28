@@ -89,4 +89,8 @@ public class FilaReservasTest {
                 () -> fila.reservar("paulo", TipoUsuario.PROFESSOR));
         assertEquals(5, fila.tamanho());
     }
+    @Test
+    void cancelarQuemNaoEstaNaFilaDevolveFalse() {
+        assertFalse(fila.cancelar("zeca"));
+    }
 }
