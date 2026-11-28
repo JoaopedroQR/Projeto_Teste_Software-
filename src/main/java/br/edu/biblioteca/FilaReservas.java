@@ -5,13 +5,18 @@ import java.util.Optional;
 
 
 public class FilaReservas {
-    private final List<String> reservas = new ArrayList<>();
+    private final List<String> professores = new ArrayList<>();
+    private final List<String> alunos = new ArrayList<>();
 
     public void reservar(String usuario, TipoUsuario tipo){
-        reservas.add(usuario);
+        if(tipo == TipoUsuario.PROFESSOR){
+            professores.add(usuario);
+        }else{
+            alunos.add(usuario);
+        }
     }
     public int tamanho(){
-        return reservas.size();
+        return professores.size() + alunos.size();
     }
     public int posicao(String usuario){
         
@@ -20,9 +25,12 @@ public class FilaReservas {
         
     }
     public Optional<String> proximo(){
-        if (reservas.isEmpty()) {
-            return Optional.empty();
+        if (!professores.isEmpty()) {
+            return Optional.of(professores.remove(0));
         }
-        return Optional.of(reservas.remove(0));
+        if (!alunos.isEmpty()) {
+            return Optional.of(alunos.remove(0));
+        }
+        return Optional.empty();
     }
 }
