@@ -33,6 +33,9 @@ public class FilaReservas {
         return professores.size() + alunos.size();
     }
     public int posicao(String usuario){
+        if (usuario == null || usuario.isBlank()) {
+           throw new IllegalArgumentException("usuário obrigatório");
+        }
         int i = professores.indexOf(usuario);
         if (i >= 0) {
             return i + 1;
