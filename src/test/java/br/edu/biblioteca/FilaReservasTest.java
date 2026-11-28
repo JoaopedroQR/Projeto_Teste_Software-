@@ -76,4 +76,17 @@ public class FilaReservasTest {
                 () -> fila.reservar("paulo", TipoUsuario.ALUNO));
         assertEquals(1, fila.tamanho());
     }
+    @Test
+    void sextaReservaERejeitadaParaQualquerTipo() {
+        for (int i = 1; i <= 5; i++) {
+            fila.reservar("aluno" + i, TipoUsuario.ALUNO);
+        }
+        assertEquals(5, fila.tamanho());
+
+        assertThrows(IllegalStateException.class,
+                () -> fila.reservar("aluno6", TipoUsuario.ALUNO));
+        assertThrows(IllegalStateException.class,
+                () -> fila.reservar("paulo", TipoUsuario.PROFESSOR));
+        assertEquals(5, fila.tamanho());
+    }
 }
