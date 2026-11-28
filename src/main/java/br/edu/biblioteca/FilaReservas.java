@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public class FilaReservas {
     private int total = 0;
-    
+
     public void reservar(String usuario, TipoUsuario tipo){
         total++;
     }
@@ -16,7 +16,6 @@ public class FilaReservas {
         
     }
     public boolean cancelar(String usuario){
-        
     }
     public Optional<String> proximo(){
         return Optional.empty();

@@ -26,4 +26,9 @@ public class FilaReservasTest {
         fila.reservar("ana", TipoUsuario.ALUNO);
         assertEquals(1, fila.tamanho());
     }
+    @Test
+    public void cancelarReservaDeUsuario(){
+        fila.cancelar("ana");
+        assertEquals(0, fila.tamanho());
+    }
 }
