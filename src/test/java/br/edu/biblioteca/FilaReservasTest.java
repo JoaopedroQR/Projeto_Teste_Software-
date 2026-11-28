@@ -139,4 +139,10 @@ public class FilaReservasTest {
         assertThrows(IllegalArgumentException.class,
                 () -> fila.reservar(usuario, TipoUsuario.ALUNO));
     }
+    @Test
+    void reservarComTipoNuloLancaExcecao() {
+        assertThrows(IllegalArgumentException.class,
+                () -> fila.reservar("ana", null));
+        assertEquals(0, fila.tamanho());
+    }
 }
