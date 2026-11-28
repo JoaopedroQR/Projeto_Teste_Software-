@@ -109,4 +109,8 @@ public class FilaReservasTest {
         assertTrue(fila.cancelar("paulo"));
         assertEquals(0, fila.tamanho());
     }
+    @Test
+    void posicaoDeQuemNaoEstaNaFilaEZero() {
+        assertEquals(0, fila.posicao("zeca"));
+    }
 }
