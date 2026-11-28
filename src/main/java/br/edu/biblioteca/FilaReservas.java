@@ -16,6 +16,11 @@ public class FilaReservas {
         
     }
     public boolean cancelar(String usuario){
+        if(total > 0){
+            total--;
+            return true;
+        }
+        return false;
     }
     public Optional<String> proximo(){
         return Optional.empty();
