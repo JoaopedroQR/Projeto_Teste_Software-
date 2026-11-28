@@ -5,8 +5,10 @@ import java.util.Optional;
 
 public class FilaReservas {
     private int total = 0;
+    private String primeiro;
 
     public void reservar(String usuario, TipoUsuario tipo){
+        primeiro = usuario;
         total++;
     }
     public int tamanho(){
@@ -23,6 +25,10 @@ public class FilaReservas {
         return false;
     }
     public Optional<String> proximo(){
-        return Optional.empty();
+        if (total == 0) {
+            return Optional.empty();
+        }
+        total--;
+        return Optional.of(primeiro);
     }
 }
