@@ -121,4 +121,14 @@ public class FilaReservasTest {
         assertEquals(1, fila.posicao("ana"));
         assertEquals(2, fila.posicao("bia"));
     }
+    @Test
+    void posicaoConsideraOsProfessoresAFrente() {
+        fila.reservar("ana", TipoUsuario.ALUNO);
+        fila.reservar("bia", TipoUsuario.ALUNO);
+        fila.reservar("paulo", TipoUsuario.PROFESSOR);
+
+        assertEquals(1, fila.posicao("paulo"));
+        assertEquals(2, fila.posicao("ana"));
+        assertEquals(3, fila.posicao("bia"));
+    }
 }
