@@ -31,4 +31,10 @@ public class FilaReservasTest {
         fila.cancelar("ana");
         assertEquals(0, fila.tamanho());
     }
+    @Test
+    void proximoDevolveOReservadoERemove() {
+        fila.reservar("ana", TipoUsuario.ALUNO);
+        assertEquals(Optional.of("ana"), fila.proximo());
+        assertEquals(0, fila.tamanho());
+    }
 }
