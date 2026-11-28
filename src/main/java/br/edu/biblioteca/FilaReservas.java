@@ -1,34 +1,28 @@
 package br.edu.biblioteca;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 
 public class FilaReservas {
-    private int total = 0;
-    private String primeiro;
+    private final List<String> reservas = new ArrayList<>();
 
     public void reservar(String usuario, TipoUsuario tipo){
-        primeiro = usuario;
-        total++;
+        reservas.add(usuario);
     }
     public int tamanho(){
-        return total;
+        return reservas.size();
     }
     public int posicao(String usuario){
         
     }
     public boolean cancelar(String usuario){
-        if(total > 0){
-            total--;
-            return true;
-        }
-        return false;
+        
     }
     public Optional<String> proximo(){
-        if (total == 0) {
+        if (reservas.isEmpty()) {
             return Optional.empty();
         }
-        total--;
-        return Optional.of(primeiro);
+        return Optional.of(reservas.remove(0));
     }
 }
