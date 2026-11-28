@@ -29,7 +29,15 @@ public class FilaReservas {
         return professores.size() + alunos.size();
     }
     public int posicao(String usuario){
-        return alunos.indexOf(usuario) + 1;
+        int i = professores.indexOf(usuario);
+        if (i >= 0) {
+            return i + 1;
+        }
+        i = alunos.indexOf(usuario);
+        if (i >= 0) {
+            return professores.size() + i + 1;
+        }
+        return 0;
     }
     public boolean cancelar(String usuario){
         return alunos.remove(usuario) || professores.remove(usuario);
