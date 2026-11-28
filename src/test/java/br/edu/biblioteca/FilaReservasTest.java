@@ -21,4 +21,9 @@ public class FilaReservasTest {
     public void filaNovaNaoTemProximo() {
         assertEquals(Optional.empty(), fila.proximo());
     }
+    @Test
+    public void reservarAumentaOTamanho() {
+        fila.reservar("ana", TipoUsuario.ALUNO);
+        assertEquals(1, fila.tamanho());
+    }
 }
