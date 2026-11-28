@@ -40,7 +40,7 @@ public class FilaReservasTest {
         assertEquals(Optional.of("bia"), fila.proximo());
         assertEquals(Optional.empty(), fila.proximo());
     }
-    
+
     @Test
     void professoresFicamAFrenteDosAlunos() {
         fila.reservar("ana", TipoUsuario.ALUNO);
@@ -52,5 +52,11 @@ public class FilaReservasTest {
         assertEquals(Optional.of("marta"), fila.proximo());
         assertEquals(Optional.of("ana"), fila.proximo());
         assertEquals(Optional.of("bia"), fila.proximo());
+    }
+
+    @Test 
+    void visitantesNaoReservam(){
+        assertThrows(IllegalStateException.class, () -> fila.reservar("joao", TipoUsuario.VISITANTE));
+        assertEquals(0, fila.tamanho());
     }
 }
