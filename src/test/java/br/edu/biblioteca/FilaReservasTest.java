@@ -67,4 +67,13 @@ public class FilaReservasTest {
                 () -> fila.reservar("ana", TipoUsuario.ALUNO));
         assertEquals(1, fila.tamanho());
     }
+    @Test
+    void professorNaoPodeEstarDuasVezes() {
+        fila.reservar("paulo", TipoUsuario.PROFESSOR);
+        assertThrows(IllegalStateException.class,
+                () -> fila.reservar("paulo", TipoUsuario.PROFESSOR));
+        assertThrows(IllegalStateException.class,
+                () -> fila.reservar("paulo", TipoUsuario.ALUNO));
+        assertEquals(1, fila.tamanho());
+    }
 }
