@@ -113,4 +113,12 @@ public class FilaReservasTest {
     void posicaoDeQuemNaoEstaNaFilaEZero() {
         assertEquals(0, fila.posicao("zeca"));
     }
+    @Test
+    void posicaoDeAlunoComecaEmUm() {
+        fila.reservar("ana", TipoUsuario.ALUNO);
+        fila.reservar("bia", TipoUsuario.ALUNO);
+
+        assertEquals(1, fila.posicao("ana"));
+        assertEquals(2, fila.posicao("bia"));
+    }
 }
