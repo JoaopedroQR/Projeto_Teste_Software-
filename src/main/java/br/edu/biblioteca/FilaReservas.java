@@ -47,6 +47,9 @@ public class FilaReservas {
         return 0;
     }
     public boolean cancelar(String usuario){
+        if (usuario == null || usuario.isBlank()) {
+            throw new IllegalArgumentException("usuário obrigatório");
+        } 
         return alunos.remove(usuario) || professores.remove(usuario);
     }
     public Optional<String> proximo(){
