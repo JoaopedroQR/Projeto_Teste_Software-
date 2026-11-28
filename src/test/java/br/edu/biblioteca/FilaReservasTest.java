@@ -37,4 +37,12 @@ public class FilaReservasTest {
         assertEquals(Optional.of("ana"), fila.proximo());
         assertEquals(0, fila.tamanho());
     }
+    @Test
+    void alunosSaemPorOrdemDeChegada() {
+        fila.reservar("ana", TipoUsuario.ALUNO);
+        fila.reservar("bia", TipoUsuario.ALUNO);
+        assertEquals(Optional.of("ana"), fila.proximo());
+        assertEquals(Optional.of("bia"), fila.proximo());
+        assertEquals(Optional.empty(), fila.proximo());
+    }
 }
