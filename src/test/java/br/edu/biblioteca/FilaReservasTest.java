@@ -102,4 +102,11 @@ public class FilaReservasTest {
         assertEquals(1, fila.tamanho());
         assertEquals(Optional.of("bia"), fila.proximo());
     }
+    @Test
+    void cancelarProfessorRemoveEDevolveTrue() {
+        fila.reservar("paulo", TipoUsuario.PROFESSOR);
+
+        assertTrue(fila.cancelar("paulo"));
+        assertEquals(0, fila.tamanho());
+    }
 }
