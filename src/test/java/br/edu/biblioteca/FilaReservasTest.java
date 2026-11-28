@@ -59,4 +59,12 @@ public class FilaReservasTest {
         assertThrows(IllegalStateException.class, () -> fila.reservar("joao", TipoUsuario.VISITANTE));
         assertEquals(0, fila.tamanho());
     }
+
+    @Test
+    void alunoNaoPodeEstarDuasVezes() {
+        fila.reservar("ana", TipoUsuario.ALUNO);
+        assertThrows(IllegalStateException.class,
+                () -> fila.reservar("ana", TipoUsuario.ALUNO));
+        assertEquals(1, fila.tamanho());
+    }
 }
