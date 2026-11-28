@@ -2,12 +2,15 @@ package br.edu.biblioteca;
 
 import java.util.Optional;
 
-public class FilaReservas {
-    public void reservar(String usuario, TipoUsuario tipo){
 
+public class FilaReservas {
+    private int total = 0;
+    
+    public void reservar(String usuario, TipoUsuario tipo){
+        total++;
     }
     public int tamanho(){
-        return 0;
+        return total;
     }
     public int posicao(String usuario){
         
