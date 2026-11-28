@@ -151,4 +151,10 @@ public class FilaReservasTest {
     void posicaoComUsuarioNuloOuEmBrancoLancaExcecao(String usuario) {
         assertThrows(IllegalArgumentException.class, () -> fila.posicao(usuario));
     }
+    @ParameterizedTest
+    @NullSource
+    @ValueSource(strings = {"", "   "})
+    void cancelarComUsuarioNuloOuEmBrancoLancaExcecao(String usuario) {
+        assertThrows(IllegalArgumentException.class, () -> fila.cancelar(usuario));
+    }
 }
