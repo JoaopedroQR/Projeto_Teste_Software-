@@ -15,6 +15,8 @@ public class FilaReservas {
     public void reservar(String usuario, TipoUsuario tipo){
         if(estaNaFila(usuario)){
             throw new IllegalStateException("usuário já está na fila");
+        }else if(tamanho() == 5){
+            throw new IllegalStateException("Fila cheia");
         }else if(tipo == TipoUsuario.PROFESSOR){
             professores.add(usuario);
         }else if(tipo == TipoUsuario.ALUNO){
