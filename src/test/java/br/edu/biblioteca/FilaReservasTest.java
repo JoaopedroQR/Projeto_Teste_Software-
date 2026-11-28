@@ -131,4 +131,12 @@ public class FilaReservasTest {
         assertEquals(2, fila.posicao("ana"));
         assertEquals(3, fila.posicao("bia"));
     }
+
+    @ParameterizedTest
+    @NullSource
+    @ValueSource(strings = {"", "   "})
+    void reservarComUsuarioNuloOuEmBrancoLancaExcecao(String usuario) {
+        assertThrows(IllegalArgumentException.class,
+                () -> fila.reservar(usuario, TipoUsuario.ALUNO));
+    }
 }
