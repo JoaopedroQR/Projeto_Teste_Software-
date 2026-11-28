@@ -18,6 +18,7 @@ class MultaCentavosTest {
     @CsvSource({
         "ALUNO,0,0", // limite: sem atraso, sem multa
         "ALUNO,1,100", // limite: 1º dia cobrado
+        "ALUNO,5,500", // limite: último dia da faixa de R$ 1
         "ALUNO,10,1000", // limite: último dia da faixa de R$ 1
         "ALUNO,11,1200", // limite: 1º dia da faixa de R$ 2  (pegou o defeito B)
         "ALUNO,12,1400", // exemplo do enunciado: 10x100 + 2x200
@@ -41,6 +42,7 @@ class MultaCentavosTest {
         "0,0", // sem atraso
         "3,0", // último dia de carência (pegou o defeito D)
         "4,100", // 1º dia cobrado
+        "5,200", // 1º dia cobrado
         "13,1000", // 10º dia cobrado
         "14,1200", // 11º dia cobrado (faixa de R$ 2)
         "33,5000", // 30º dia cobrado: R$ 50 exatos
@@ -85,3 +87,4 @@ class MultaCentavosTest {
         assertThrows(IllegalArgumentException.class, () -> regras.multaCentavos(tipo, -1));
     }
 }
+
