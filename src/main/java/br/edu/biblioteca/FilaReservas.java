@@ -11,8 +11,10 @@ public class FilaReservas {
     public void reservar(String usuario, TipoUsuario tipo){
         if(tipo == TipoUsuario.PROFESSOR){
             professores.add(usuario);
-        }else{
+        }else if(tipo == TipoUsuario.ALUNO){
             alunos.add(usuario);
+        }else if(tipo == TipoUsuario.VISITANTE){
+            throw new IllegalStateException("Visitante não pode reservar!");
         }
     }
     public int tamanho(){
